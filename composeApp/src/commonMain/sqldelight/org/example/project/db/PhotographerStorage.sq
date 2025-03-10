@@ -1,0 +1,37 @@
+CREATE TABLE Photographer (
+    id INTEGER PRIMARY KEY,
+    stageName TEXT NOT NULL,
+    photoUrl TEXT NOT NULL,
+    story TEXT NOT NULL,
+    portfolio TEXT NOT NULL
+);
+
+
+-- Insertion d'un nouveau photographer
+insertPhotographer:
+INSERT INTO Photographer(id, stageName, photoUrl, story, portfolio)
+VALUES (?, ?, ?, ?, ?);
+
+-- Sélection d'un photographer par son id
+selectPhotographerById:
+SELECT * FROM Photographer WHERE id = ?;
+
+-- Sélection de tous les photographers
+selectAllPhotographers:
+SELECT * FROM Photographer;
+
+-- Mise à jour d'un photographer
+updatePhotographer:
+UPDATE Photographer
+SET stageName = ?,
+    photoUrl = ?,
+    story = ?,
+    portfolio = ?
+WHERE id = ?;
+
+-- Suppression d'un photographer
+deletePhotographer:
+DELETE FROM Photographer WHERE id = ?;
+
+deleteAll:
+DELETE FROM Photographer;
