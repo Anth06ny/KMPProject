@@ -6,6 +6,7 @@ import org.koin.dsl.module
 
 actual fun databaseModule() = module {
     single {
-        NativeSqliteDriver(MyDatabase.Schema, "test.db")
+        val driver = NativeSqliteDriver(MyDatabase.Schema, "test.db")
+        MyDatabase(driver)
     }
 }

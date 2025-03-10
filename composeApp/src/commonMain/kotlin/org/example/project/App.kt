@@ -8,8 +8,21 @@ import org.jetbrains.compose.ui.tooling.preview.Preview
 @Composable
 @Preview
 fun App() {
+
+
+
+//    KoinApplication(application = {
+//        modules(apiModule, viewModelModule)
+//    }) {
+//        AppTheme {
+//            AppNavigation()
+//        }
+//    }
+
+
     AppTheme {
         AppNavigation()
     }
+
 }
 
