@@ -1,7 +1,11 @@
 package org.example.project.viewmodel
 
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.setValue
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import dev.icerock.moko.permissions.PermissionState
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.launch
@@ -13,7 +17,7 @@ import org.example.project.model.PhotographerAPI
 
 class MainViewModel(
     val photographerAPI: PhotographerAPI,
-    val myDatabase: MyDatabase
+    val myDatabase: MyDatabase,
 ) : ViewModel() {
 
     private val photographerQueries = myDatabase.photographerStorageQueries
@@ -27,6 +31,9 @@ class MainViewModel(
 
     private val _errorMessage = MutableStateFlow("")
     val errorMessage = _errorMessage.asStateFlow()
+
+    var state by mutableStateOf(PermissionState.NotDetermined)
+        private set
 
     init {
         loadPhotographers()

@@ -1,9 +1,9 @@
 package org.example.project.di
 
-import io.ktor.client.*
-import io.ktor.client.plugins.contentnegotiation.*
-import io.ktor.http.*
-import io.ktor.serialization.kotlinx.json.*
+import io.ktor.client.HttpClient
+import io.ktor.client.plugins.contentnegotiation.ContentNegotiation
+import io.ktor.http.ContentType
+import io.ktor.serialization.kotlinx.json.json
 import kotlinx.serialization.json.Json
 import org.example.project.model.PhotographerAPI
 import org.example.project.model.databaseModule
@@ -42,6 +42,7 @@ val apiModule = module {
     //Si besoin de coroutine
     //single { CoroutineScope(Dispatchers.Default + SupervisorJob() ) }
 }
+
 
 val viewModelModule = module {
     viewModelOf(::MainViewModel)

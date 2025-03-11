@@ -28,6 +28,10 @@ kotlin {
         iosTarget.binaries.framework {
             baseName = "ComposeApp"
             isStatic = true
+            //En théorie ca suffit.
+            //En pratique il faut des fois le faire manuellement dans XCode
+            //Configuration -> BuildSetting -> Other Linker Flags -> -lsqlite3
+            linkerOpts("-lsqlite3")
         }
     }
 
@@ -75,6 +79,11 @@ kotlin {
             implementation("app.cash.sqldelight:runtime:2.0.2")
             implementation("app.cash.sqldelight:coroutines-extensions:2.0.2")
 
+            //Permission
+            //api permet de rendre les librairies utilisables par les dépendances du module egalement
+            api("dev.icerock.moko:permissions:0.18.0")
+            api("dev.icerock.moko:permissions-compose:0.18.0")
+
             implementation(compose.runtime)
             implementation(compose.foundation)
             implementation(compose.material3)
@@ -98,6 +107,12 @@ kotlin {
 
             implementation(compose.desktop.currentOs)
             implementation(libs.kotlinx.coroutines.swing)
+        }
+        commonTest.dependencies {
+            implementation("io.insert-koin:koin-test:4.0.0")
+            implementation("org.jetbrains.kotlinx:kotlinx-coroutines-test:1.10.1")
+            //Kotlin Version
+            implementation("org.jetbrains.kotlin:kotlin-test:2.1.10")
         }
     }
 }
