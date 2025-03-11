@@ -33,13 +33,6 @@
 	<array>
 		<string>armv7</string>
 	</array>
-	<array>
-        <key>CFBundleLocalizations</key>
-        <array>
-            <string>en</string>
-            <string>ar</string>
-        </array>
-    </array>
 	<key>UISupportedInterfaceOrientations</key>
 	<array>
 		<string>UIInterfaceOrientationPortrait</string>
@@ -53,5 +46,9 @@
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
+	 <!-- Ajout de la permission de localisation -->
+    	<key>NSLocationWhenInUseUsageDescription</key>
+    	<string>Cette application a besoin de votre localisation pour vous offrir une expérience personnalisée.</string>
+
 </dict>
 </plist>
